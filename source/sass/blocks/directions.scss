@@ -3,8 +3,12 @@
   padding: size(58px) 0 size(150px) 0;
   background-color: $color-light;
 
+  @include vp-1023 {
+    padding: 20px 0;
+  }
+
   @include vp-767 {
-    padding: 55px 0 60px;
+    padding: 60px 0;
   }
 
   & .container {
@@ -28,13 +32,11 @@
     background-image: url("../../img/svg/gradient.svg");
     background-position: bottom;
     background-size: size(3023px) size(1426px);
-    // z-index: -1;
 
     @include vp-767 {
       top: -92%;
       height: 100%;
       background-size: 1023px 926px;
-      // z-index: 0;
     }
   }
 }
@@ -43,7 +45,7 @@
   max-width: size(1280px);
   margin: auto;
 
-  @include vp-767 {
+  @include vp-1023 {
     max-width: 100%;
   }
 
@@ -70,7 +72,11 @@
     flex-direction: row;
     flex-wrap: nowrap;
     column-gap: 0;
-    margin-bottom: 35px;
+    margin-bottom: 30px;
+  }
+
+  @include vp-374 {
+    margin-bottom: 20px;
   }
 }
 
@@ -81,14 +87,18 @@
     width: auto;
 
     @include vp-1023 {
-      min-width: size(325px);
-      min-height: size(335px);
+      min-height: 335px;
       max-width: 50%;
+      height: 100%;
     }
 
     @include vp-767 {
       min-width: 280px;
       max-width: 280px;
+    }
+
+    @include vp-374 {
+      min-height: 280px;
     }
   }
 }
@@ -106,22 +116,28 @@
   transition: color, background-color, 0.5s;
 
   @include vp-1023 {
-    padding: size(40px) size(20px) size(60px);
+    padding: 20px 10px 30px;
     width: calc(100% - 30px);
     border-radius: size(40px);
-    grid-template-columns: 55px auto;
-    grid-template-rows: size(100px) auto;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 60px auto;
+    height: 100%;
+    min-height: 335px;
   }
 
   @include vp-767 {
     background-color: var(--color, #82b4ff);
     color: $color-default-white;
-    padding: 37px 22px 52px;
+    padding: 32px 22px 52px;
     width: 280px;
-    min-height: 280px;
+    min-height: 350px;
     border-radius: 35px;
     grid-template-columns: 55px auto;
-    grid-template-rows: 50px auto;
+    grid-template-rows: 85px auto;
+  }
+
+  @include vp-374 {
+    min-height: 280px;
   }
 
   @include hover-focus {
@@ -152,14 +168,14 @@
   margin: size(20px) size(9px) size(35px);
 
   @include vp-1023 {
-    font-size: size(20px);
-    margin: size(17px) size(9px) size(25px);
+    font-size: 16px;
+    margin: 17px 0 25px 9px;
   }
 
   @include vp-767 {
     font-size: 18px;
-    align-self: center;
-    margin-left: 16px;
+    margin-left: 0;
+    margin-top: 23px;
   }
 }
 
@@ -175,16 +191,24 @@
   @include vp-1023 {
     font-size: 13px;
     column-gap: 10px;
+    row-gap: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   @include vp-767 {
-    font-size: 11px;
-    column-gap: 12px;
+    font-size: 14px;
+    column-gap: 2px;
     align-items: flex-end;
     justify-content: flex-start;
   }
 }
 
 .directions__swiper-button {
-  height: 50px;
+  display: none;
+
+  @include vp-767 {
+    height: 50px;
+    display: block;
+  }
 }

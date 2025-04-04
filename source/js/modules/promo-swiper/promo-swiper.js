@@ -1,10 +1,10 @@
-document.addEventListener('DOMContentLoaded', () => {
+function initPromoSwiper() {
   let swiperPromo = null;
-  let promoSection = document.querySelector('.promo');
+  const promoSection = document.querySelector('.promo');
+
+  if (!promoSection) return;
 
   const initSwiper = () => {
-    if (!promoSection) return;
-
     const promoWrapper = promoSection.querySelector('[data-promo-swiper]');
     const tabParent = promoSection.querySelector('[data-tabs="parent"]');
 
@@ -25,9 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
             prevEl: promoSection.querySelector('[data-promo-prev]'),
           },
           loop: true,
-          loopAdditionalSlides: 1, // Добавляем дополнительные слайды для плавности
-          loopedSlides: 3, // Указываем количество дублируемых слайдов
-          slidesPerView: 1,
+          loopAdditionalSlides: 1,
+          loopedSlides: 3,
+          slidesPerView: 'auto',
           watchOverflow: true,
           spaceBetween: 9,
           allowTouchMove: true,
@@ -38,13 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
             prevSlideMessage: 'Previous slide',
             nextSlideMessage: 'Next slide',
           },
-          // Важные настройки для работы навигации в loop-режиме
           observer: true,
           observeParents: true,
           observeSlideChildren: true,
-          // Отключаем перетаскивание на навигационных кнопках
-          // preventClicks: false,
-          // preventClicksPropagation: false,
         });
 
         // Дополнительная проверка для кнопок навигации
@@ -71,26 +67,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // Инициализация
-  if (promoSection) {
-    initSwiper();
+  // Инициализация при загрузке
+  initSwiper();
 
-    let resizeTimeout;
-    const resizeHandler = () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(() => {
-        initSwiper();
-      }, 250);
-    };
+  // Оптимизация ресайза
+  let resizeTimeout;
+  const resizeHandler = () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(initSwiper, 250);
+  };
 
-    window.addEventListener('resize', resizeHandler);
+  window.addEventListener('resize', resizeHandler);
 
-    // Очистка при уничтожении
-    window.addEventListener('beforeunload', () => {
-      window.removeEventListener('resize', resizeHandler);
-      if (swiperPromo) {
-        swiperPromo.destroy(true, true);
-      }
-    });
-  }
-});
+  // Очистка
+  return () => {
+    window.removeEventListener('resize', resizeHandler);
+    if (swiperPromo) {
+      swiperPromo.destroy(true, true);
+    }
+  };
+}
+
+export { initPromoSwiper };

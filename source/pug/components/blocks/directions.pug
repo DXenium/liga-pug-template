@@ -9,7 +9,7 @@ mixin directions()
             each item in directionsList
               li.directions__card.swiper-slide(data-color=item.color)
                 a.directions__card-link(href=item.href)
-                  +img("file", item.icon, "webp", 73, 73)
+                  +img("file", item.icon, "webp", 73, 73, alt='иконка направления образования')
                   h3.directions__card-title= item.title
                   .directions__text(aria-hidden="true")
                     each subItem, index in item.subMenu

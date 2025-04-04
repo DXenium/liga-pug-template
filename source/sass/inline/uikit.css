@@ -2,35 +2,49 @@
   padding: 50px 0;
   scroll-behavior: smooth;
 }
+
 @media (max-width: 1023px) {
   .uikit {
     padding: 50px 0 100px;
   }
 }
+
+.uikit__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #486dd8;
+}
+
 .uikit__header-link {
   display: inline-flex;
 }
+
 .uikit__text {
   font-size: 14px;
   line-height: 18px;
   margin: 0 0 10px 0;
 }
+
 .uikit__text--class {
   font-family: monospace, monospace;
   font-size: 16px;
   line-height: 22px;
 }
+
 .uikit__h1 {
   font-size: 30px;
   line-height: 36px;
   margin: 30px 0 30px;
 }
+
 @media (max-width: 767px) {
   .uikit__h1 {
     font-size: 24px;
     line-height: 30px;
   }
 }
+
 .uikit__h2 {
   font-size: 20px;
   line-height: 26px;
@@ -38,15 +52,18 @@
   margin: 0;
   padding: 5px 0;
 }
-.uikit__section > .uikit__h2 {
+
+.uikit__section>.uikit__h2 {
   margin: 0 0 15px 0;
   padding: 50px 0 0 0;
 }
+
 @media (max-width: 767px) {
-  .uikit__section > .uikit__h2 {
+  .uikit__section>.uikit__h2 {
     padding: 30px 0 0;
   }
 }
+
 .uikit__component {
   position: relative;
   display: flex;
@@ -54,11 +71,13 @@
   flex-direction: column;
   padding: 20px;
 }
+
 @media (max-width: 767px) {
   .uikit__component {
     padding: 20px 0;
   }
 }
+
 .uikit__component::before {
   position: absolute;
   top: 50%;
@@ -69,15 +88,18 @@
   transform: translateY(-50%);
   background-color: #2c39f2;
 }
+
 @media (max-width: 767px) {
   .uikit__component::before {
     left: -10px;
   }
 }
+
 .uikit__component pre {
   width: 100%;
   margin: 15px 0 0 0;
 }
+
 .uikit__sections {
   position: fixed;
   z-index: 5000;
@@ -93,15 +115,18 @@
   border-radius: 0 0 10px 10px;
   background-color: #2c39f2;
 }
+
 @media (max-width: 1023px) {
   .uikit__sections {
     width: 100%;
     max-width: 100%;
   }
 }
+
 .uikit__sections::-webkit-scrollbar {
   display: none;
 }
+
 .uikit__sections label {
   font-size: 16px;
   font-weight: 600;
@@ -113,19 +138,23 @@
   transition: opacity 0.3s ease;
   color: inherit;
 }
+
 @media (max-width: 1023px) {
   .uikit__sections label {
     justify-content: center;
   }
 }
+
 @media (hover: hover) {
   .uikit__sections label:hover:not(.focus-visible) {
     opacity: 0.6;
   }
 }
+
 .uikit__sections label.focus-visible:focus {
   opacity: 0.6;
 }
+
 .uikit__sections label::after {
   display: inline-block;
   flex-shrink: 0;
@@ -138,6 +167,7 @@
   border-top: none;
   border-left: none;
 }
+
 .uikit__sections div {
   display: grid;
   padding: 0;
@@ -145,16 +175,19 @@
   grid-template-columns: 1fr;
   grid-template-rows: 0fr;
 }
-.uikit__sections input:checked + div {
+
+.uikit__sections input:checked+div {
   padding: 10px 0 0 0;
   grid-template-rows: 1fr;
 }
+
 .uikit__sections ul {
   overflow: hidden;
   margin: 0;
   padding: 0;
   list-style: none;
 }
+
 .uikit__sections li::before {
   font-size: 14px;
   line-height: 18px;
@@ -162,12 +195,14 @@
   content: counter(sections) ". ";
   counter-increment: sections;
 }
+
 .uikit__sections a {
   font-size: 14px;
   line-height: 18px;
   position: relative;
   color: inherit;
 }
+
 .uikit__sections a::before {
   position: absolute;
   bottom: 0;
@@ -179,11 +214,13 @@
   opacity: 0;
   background-color: #000;
 }
+
 @media (hover: hover) {
   .uikit__sections a:hover:not(.focus-visible)::before {
     opacity: 0.8;
   }
 }
+
 .uikit__sections a.focus-visible:focus::before {
   opacity: 0.8;
 }

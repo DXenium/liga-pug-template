@@ -3,8 +3,8 @@
   background-color: $color-black;
   color: $color-default-white;
 
-  @include vp-374 {
-    padding: 32px 20px 100px;
+  @include vp-767 {
+    padding: 28px 20px 85px;
   }
 }
 
@@ -19,10 +19,16 @@
   gap: size(95px);
 
   @include vp-1279 {
-    gap: size(50px);
+    gap: 50px;
+  }
+
+  @include vp-1023 {
+    max-width: 100%;
+    justify-content: center;
   }
 
   @include vp-767 {
+    justify-content: flex-start;
     gap: 27px;
     margin: 0;
   }
@@ -30,13 +36,12 @@
 
 .footer__logo-wrapper {
   max-width: size(226px);
-  position: relative;
   display: flex;
   flex-direction: column;
 
   @include vp-1023 {
+    gap: 20px;
     flex-direction: row;
-    gap: size(20px);
     max-width: fit-content;
   }
 
@@ -60,6 +65,7 @@
 }
 
 .footer__logo {
+  user-select: none;
   color: inherit;
   display: flex;
   align-items: center;
@@ -70,7 +76,7 @@
   margin-bottom: size(47px);
   transition: opacity 0.5s;
 
-  @include vp-374 {
+  @include vp-1023 {
     font-size: 14px;
     gap: 4px;
     margin: 0;
@@ -97,7 +103,7 @@
   color: $color-grey;
   margin: 0;
 
-  @include vp-374 {
+  @include vp-1023 {
     font-size: 16px;
     line-height: 25.6px;
   }
@@ -113,8 +119,6 @@
 
   @include vp-1279 {
     gap: size(60px);
-    // width: 100%;
-    justify-content: space-between;
   }
 
 }
@@ -141,8 +145,12 @@
   margin: 0;
   margin-bottom: size(53px);
 
-  @include vp-374 {
+  @include vp-1023 {
     margin-bottom: 23px;
+    font-size: 16px;
+  }
+
+  @include vp-767 {
     font-size: 20px;
   }
 }
@@ -161,12 +169,17 @@
   line-height: 160%;
   color: $color-grey;
 
-  @include vp-374 {
+  @include vp-1023 {
     padding-bottom: 16px;
+    font-size: 14px;
+  }
+
+  @include vp-767 {
     font-size: 16px;
   }
 
   a {
+    user-select: none;
     color: inherit;
     transition: opacity 0.5s;
 

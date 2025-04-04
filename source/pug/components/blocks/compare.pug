@@ -31,4 +31,4 @@ mixin compare()
       ul.compare__list(aria-hidden="true")
         each compare in item.compare
           li.compare__scheme(data-set1=compare.set1, data-set2=compare.set2, data-color=compare.color)
-            +img("file", compare.icon, "webp", 24, 24)
+            +img("file", compare.icon, "webp", 24, 24, alt='иконка школы')

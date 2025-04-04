@@ -38,15 +38,15 @@ mixin promo()
         .promo__content.swiper-wrapper(data-tabs="content")
           each item in promoList
             .promo__element.swiper-slide(data-tabs="element")
-              +img("slides", item.image, "webp", 425, 425)
+              +img("slides", item.image, "webp", 425, 425, alt='иконка рекламного слайда')
               h3.promo__element-title= item.lead
               p.promo__element-description= item.description
         .promo__controls(data-tabs="controls")
           each item in promoList
             button.promo__control.btn(data-tabs="control", type="button")
               +icon(item.icon, 31, 31)
-              p.promo__control-title= item.buttonTitle
+              span.promo__control-title= item.buttonTitle
               span.promo__control-description= item.buttonDescription
-    .promo__swiper-button
-      button.btn__swiper.btn__swiper--prev.swiper-button-prev(type="button", aria-label="Предыдущий слайд", data-promo-prev)
-      button.btn__swiper.btn__swiper--next.swiper-button-next(type="button", aria-label="Следующий слайд", data-promo-next)
+        .promo__swiper-button
+          button.btn__swiper.btn__swiper--prev.swiper-button-prev(type="button", aria-label="Предыдущий слайд", data-promo-prev)
+          button.btn__swiper.btn__swiper--next.swiper-button-next(type="button", aria-label="Следующий слайд", data-promo-next)

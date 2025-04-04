@@ -39,12 +39,17 @@
     padding-bottom: 30px;
   }
 
+  @include vp-767 {
+    padding: 30px 20px;
+  }
+
   @include vp-374 {
     padding: 12px 20px 18px;
   }
 }
 
 .navigation__logo {
+  user-select: none;
   color: $color-denim;
   font-weight: 600;
   font-size: size(19px);
@@ -203,6 +208,7 @@
 .navigation__menu,
 .navigation__link {
   font-weight: 500;
+  user-select: none;
 
   &.is-active {
     color: $color-accent-main;

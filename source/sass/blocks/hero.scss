@@ -15,18 +15,17 @@
   grid-template-rows: min-content min-content size(303px);
 
   @include vp-1023 {
-    display: flex;
-    flex-direction: column;
     padding-top: size(80px);
     padding-bottom: 0;
-    row-gap: size(25px);
-    max-width: size(700px);
+    max-width: 90%;
   }
 
   @include vp-767 {
+    display: flex;
+    flex-direction: column;
     padding-top: 35px;
-    max-width: 400px;
-    row-gap: 30px;
+    max-width: 100%;
+    row-gap: 26px;
   }
 
   & .hero__title {
@@ -37,12 +36,14 @@
     line-height: 124%;
 
     @include vp-1023 {
-      font-size: size(40px);
+      font-size: 26px;
       padding: 0;
+      margin-bottom: 20px;
     }
 
     @include vp-767 {
       font-size: 28px;
+      margin-bottom: 4px;
     }
   }
 }
@@ -56,16 +57,28 @@
   padding: size(31px) size(203px) size(47px) 0;
   margin: 0;
 
-  @include vp-767 {
+  @include vp-1023 {
     padding: 0;
+    margin-bottom: 20px;
+  }
+
+  @include vp-767 {
     font-size: 14px;
+    margin-bottom: 0;
   }
 }
 
 .hero__button {
+  user-select: none;
   grid-row: 3;
   margin-bottom: auto;
   font-size: size(16px);
+
+  @include vp-1023 {
+    &.btn {
+      width: fit-content;
+    }
+  }
 
   @include vp-767 {
     font-size: size(14px);
@@ -84,16 +97,16 @@
     top: size(-7px);
     right: size(-20px);
 
-    @include vp-1170 {
-      top: size(50px);
+    @include vp-1023 {
+      top: size(-40px);
     }
 
-    @include vp-1023 {
+    @include vp-767 {
       display: none;
     }
   }
 
-  @include vp-1023 {
+  @include vp-767 {
     display: none;
   }
 }

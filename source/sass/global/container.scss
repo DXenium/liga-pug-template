@@ -10,10 +10,11 @@
 
   @include vp-1023 {
     padding: 0 size(24px);
+    max-width: 90%;
   }
 
   @include vp-767 {
-    padding: 0 20px;
+    padding: 0;
     max-width: 100%;
   }
 

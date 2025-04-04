@@ -4,10 +4,9 @@ import {getCardColor} from './utils/card-color';
 import {getScheme} from './utils/scheme.js';
 import {initTabs} from './utils/tabs/init-tabs.js';
 import {initAccordions} from './utils/accordion/init-accordion.js';
-import './modules/directions-swiper/directions-swiper.js';
-import './modules/promo-swiper/promo-swiper.js';
-import './modules/cool-swiper/cool-swiper.js';
-import './utils/burger.js';
+import {initDirectionsSwiper} from './modules/directions-swiper/directions-swiper.js';
+import { initPromoSwiper } from './modules/promo-swiper/promo-swiper.js';
+import {initBurgerMenu} from './utils/burger.js';
 
 const colorList = document.querySelectorAll('.directions__card');
 const schemeList = document.querySelectorAll('.compare__scheme');
@@ -18,6 +17,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Utils
   // ---------------------------------
+  initBurgerMenu();
   initTabs();
   initAccordions();
   mobileVhFix();
@@ -32,6 +32,8 @@ window.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('load', () => {
     uploadFile();
     uploadImageDrop();
+    initDirectionsSwiper();
+    initPromoSwiper();
   });
 });
 
