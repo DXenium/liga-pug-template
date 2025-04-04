@@ -12,9 +12,10 @@
 //   @return calc($size-in-px / $vp-1920 * 100vw);
 // }
 
-// reboot.scss
+// // reboot.scss
 // html {
 //   font-size: size-desktop($fz-default);
+//   line-height: size(24px);
 
 //   @include vp-1919 {
 //     font-size: $fz-default;
@@ -25,21 +26,21 @@
 // 2) ремы в плюс от эталона и в минус, на планшете обычная верстка
 
 // functions.scss
-// @function size($size-in-px) {
-//   @return calc($size-in-px / $fz-default * 1rem;
-// }
+@function size($size-in-px) {
+  @return calc($size-in-px / $fz-default * 1rem);
+}
 
-// @function size-desktop($size-in-px) {
-//   @return calc($size-in-px / $vp-1920 * 100vw;
-// }
+@function size-desktop($size-in-px) {
+  @return calc($size-in-px / $vp-1920 * 100vw);
+}
 
 // reboot.scss
 // html {
 //   font-size: size-desktop($fz-default);
 
-//   @include vp-1023 {
-//     font-size: $fz-default;
-//   }
+// @include vp-1023 {
+//   font-size: $fz-default;
+// }
 // }
 
 // ---------------------------------

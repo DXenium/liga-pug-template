@@ -1,0 +1,21 @@
+mixin directions()
+  include ../mixins/directions-list
+  section.directions.directions__gradient
+    .container
+      .directons__wrapper
+        h2.directions__title.title Выбери направление
+        .directions__swiper.swiper(data-directions-swiper)
+          ul.directions__list.swiper-wrapper
+            each item in directionsList
+              li.directions__card.swiper-slide(data-color=item.color)
+                a.directions__card-link(href=item.href)
+                  +img("file", item.icon, "webp", 73, 73)
+                  h3.directions__card-title= item.title
+                  .directions__text(aria-hidden="true")
+                    each subItem, index in item.subMenu
+                      span= subItem.text
+                      if index % 2 === 0 && index !== item.subMenu.length - 1
+                        span ✦
+          .directions__swiper-button
+            button.btn__swiper.btn__swiper--prev.swiper-button-prev(type="button", aria-label="Предыдущий слайд", data-directions-prev)
+            button.btn__swiper.btn__swiper--next.swiper-button-next(type="button", aria-label="Следующий слайд", data-directions-next)

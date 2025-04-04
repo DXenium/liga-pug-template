@@ -1,0 +1,52 @@
+mixin promo()
+  -
+    const promoList = [
+      {
+        lead: "300+ довольных пользователей",
+        description: "Дополнительно в этом методе есть кнопка «Объединить по строкам». С помощью неё можно объединить ячейки выбранного диапазона построчно.",
+        image: "tab-1",
+        href: "#",
+        buttonTitle: "Довольные пользователи",
+        buttonDescription: "Изучение тем на вебинарах с преподавателями, наставником. После прохождения курса вы будете",
+        icon: "user",
+      },
+      {
+        lead: "1000+ образовательных курсов",
+        description: "Дополнительно в этом методе есть кнопка «Объединить по строкам». С помощью неё можно объединить ячейки выбранного диапазона построчно.",
+        image: "tab-2",
+        href: "#",
+        buttonTitle: "Образовательные курсы",
+        buttonDescription: "Изучение тем на вебинарах с преподавателями, наставником. После прохождения курса вы будете",
+        icon: "course",
+      },
+      {
+        lead: "300+ довольных пользователей",
+        description: "Дополнительно в этом методе есть кнопка «Объединить по строкам». С помощью неё можно объединить ячейки выбранного диапазона построчно.",
+        image: "tab-3",
+        href: "#",
+        buttonTitle: "Менторы из больших компаний",
+        buttonDescription: "Изучение тем на вебинарах с преподавателями, наставником. После прохождения курса вы будете",
+        icon: "mentor",
+      },
+
+    ]
+
+  section.promo
+    .container
+      .promo__wrapper.no-transition-global.swiper(data-tabs="parent", data-delay="300", data-height="unset", data-promo-swiper)
+        h2.promo__title.title Агрегируем курсы по&nbsp;самым актуальным темам для новичков и&nbsp;практикующих специалистов.
+        .promo__content.swiper-wrapper(data-tabs="content")
+          each item in promoList
+            .promo__element.swiper-slide(data-tabs="element")
+              +img("slides", item.image, "webp", 425, 425)
+              h3.promo__element-title= item.lead
+              p.promo__element-description= item.description
+        .promo__controls(data-tabs="controls")
+          each item in promoList
+            button.promo__control.btn(data-tabs="control", type="button")
+              +icon(item.icon, 31, 31)
+              p.promo__control-title= item.buttonTitle
+              span.promo__control-description= item.buttonDescription
+    .promo__swiper-button
+      button.btn__swiper.btn__swiper--prev.swiper-button-prev(type="button", aria-label="Предыдущий слайд", data-promo-prev)
+      button.btn__swiper.btn__swiper--next.swiper-button-next(type="button", aria-label="Следующий слайд", data-promo-next)

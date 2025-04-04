@@ -14,9 +14,9 @@ body {
 html {
   font-style: normal;
   font-weight: 400;
-  font-size: $fz-default;
-  line-height: 24px;
-  font-family: $ff-placeholder;
+  font-size: size-desktop($fz-default);
+  line-height: size(24px);
+  font-family: $ff-inter;
   color: $color-default-black;
 
   -webkit-font-smoothing: antialiased;
@@ -31,7 +31,7 @@ body {
   width: 100%;
   height: 100%;
 
-  background-color: $color-default-white;
+  background-color: $color-light;
 }
 
 a {
@@ -82,6 +82,7 @@ select {
 
 // ie11 X removal
 input {
+
   &::-ms-clear,
   &::-ms-reveal {
     display: none;

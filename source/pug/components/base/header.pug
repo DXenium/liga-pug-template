@@ -7,30 +7,52 @@ mixin header(headerMods, currentUrl)
       },
       {
         href: "#",
-        text: "Страница 2"
+        text: "Курсы"
       },
       {
         href: "#",
-        text: "Страница 3"
+        text: "Блог"
       },
     ]
 
   header.header(class=headerMods)
-    .container
-      if(currentUrl === "index.html")
-        //- lighthouse снимает 10 баллов SEO за <a> без href
-        span.header__logo Логотип
-      else
-        a.header__logo(href="index.html", aria-label="Переход на главную") Логотип
-      nav.main-nav
-        button.main-nav__toggle.btn-reset(type="button", aria-label="Переключатель отображения меню", aria-pressed="false")
-          +icon("icon-burger", 20, 20)
-        .main-nav__wrapper
-          ul.main-nav__list
-            each link in headerLinks
-              - const activeState = currentUrl === link.href
-              li.main-nav__item
-                if(activeState)
-                  span.main-nav__link.is-active= link.text
-                else
-                  a.main-nav__link(href=link.href)= link.text
+    nav.navigation
+      .container
+        .navigation__wrapper
+          if(currentUrl === "index.html")
+            //- lighthouse снимает 10 баллов SEO за <a> без href
+            span.navigation__logo
+              +icon("logo", 34, 39)
+              span FindEdu
+          else
+            a.navigaiton__logo(href="index.html", aria-label="Переход на главную страницу")
+              span.navigation__logo
+                +icon("logo", 34, 39)
+                span FindEdu
+          .navigation__main(data-navigation-main)
+            ul.navigation__list
+              each link in headerLinks
+                - const activeState = currentUrl === link.href
+                li.navigation__item
+                  if(activeState)
+                    span.navigation__link.is-active= link.text
+                  else
+                    a.navigation__link(href=link.href)= link.text
+          include ../mixins/directions-list
+          .navigation__menu(data-navigation-menu)
+            ul.navigation__sublist.accordion(data-accordion="parent", data-single, data-close-inner)
+              //- Переупорядочиваем элементы при выводе
+              each item, index in directionsList
+                //- Меняем местами 2 и 3 элементы (индексы 2 и 3)
+                - const displayIndex = index === 2 ? 3 : index === 3 ? 2 : index
+                - const displayItem = directionsList[displayIndex]
+                li.navigation__element.accordion__element(data-accordion="element")
+                  button.navigation__button.navigation__link--menu.accordion__button(type="button", data-accordion="button")= displayItem.title
+                  if displayItem.subMenu
+                  ul.navigation__content.accordion__content(data-accordion="content")
+                    each subItem in displayItem.subMenu
+                      li.navigation__subitem
+                        a.navigation__link(href=subItem.href, data-accordion="link", tabindex="-1")= subItem.text
+          button.navigation__toggle(type="button", aria-label="Переключатель отображения меню.", aria-pressed="false", data-navigation-toggle)
+    .overlay(data-navigation-overlay)
+

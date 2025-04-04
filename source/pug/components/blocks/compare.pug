@@ -1,0 +1,34 @@
+mixin compare()
+  -
+    const compareList = [
+      {
+        title: "UX/UI designer",
+        description: "UX/UI-дизайнер — одна из самых востребованных профессий 2020 года",
+        star: "★★★★★",
+        salary: "120 000 рублей",
+        company: "1 561 компания",
+        compare: [
+          {set1: 186, set2: 107, icon: "skillbox", color: "#323be1"},
+          {set1: 273, set2: 192, icon: "skillfactory", color: "#5caf56"},
+          {set1: 347, set2: 146, icon: "geekbrains", color: "#222222"},
+          {set1: 276, set2: 208, icon: "netology", color: "#eb236b"},
+          {set1: 302, set2: 135, icon: "skypro", color: "#54bff9"},
+      ]
+      },
+    ]
+
+  .compare
+    each item in compareList
+      h3.compare__title= item.title
+      p.compare__description= item.description
+      span.compare__stars(aria-hidden="true")= item.star
+      span.compare__salary
+        span.visually-hidden Заработная плата:
+        span= item.salary
+      span.compare__company
+        span.visually-hidden Найдено:
+        span= item.company
+      ul.compare__list(aria-hidden="true")
+        each compare in item.compare
+          li.compare__scheme(data-set1=compare.set1, data-set2=compare.set2, data-color=compare.color)
+            +img("file", compare.icon, "webp", 24, 24)

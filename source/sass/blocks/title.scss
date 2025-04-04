@@ -1,0 +1,15 @@
+.title {
+  font-weight: 700;
+  font-size: size(40px);
+  line-height: 124%;
+  margin: 0;
+  color: $color-night-rider;
+
+  @include vp-1023 {
+    font-size: 30px;
+  }
+
+  @include vp-767 {
+    font-size: 21px;
+  }
+}

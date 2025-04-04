@@ -1,0 +1,33 @@
+mixin cool()
+  -
+    const coolList = [
+      {
+        lead: "300+ довольных пользователей",
+        description: "Дополнительно в этом методе есть кнопка «Объединить по строкам». С помощью неё можно объединить ячейки выбранного диапазона построчно.",
+        image: "tab-1"
+      },
+      {
+        lead: "300+ довольных пользователей",
+        description: "Дополнительно в этом методе есть кнопка «Объединить по строкам». С помощью неё можно объединить ячейки выбранного диапазона построчно.",
+        image: "tab-3"
+      },
+      {
+        lead: "1000+ образовательных курсов",
+        description: "Дополнительно в этом методе есть кнопка «Объединить по строкам». С помощью неё можно объединить ячейки выбранного диапазона построчно.",
+        image: "tab-2"
+      }
+    ]
+
+  section.cool
+    .container
+      .cool__wrapper.swiper(data-cool-swiper)
+        .swiper-wrapper
+          each item in coolList
+            .cool__element.swiper-slide
+              +img("slides", item.image, "webp", 425, 425)
+              h3.cool__element-title= item.lead
+              p.cool__element-description= item.description
+        .cool__swiper-button
+          button.btn__swiper.btn__swiper--prev.swiper-button-prev(type="button", aria-label="Предыдущий слайд", data-cool-prev)
+          button.btn__swiper.btn__swiper--next.swiper-button-next(type="button", aria-label="Следующий слайд", data-cool-next)
+

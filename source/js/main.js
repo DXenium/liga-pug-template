@@ -1,8 +1,16 @@
 import {mobileVhFix} from './utils/mobile-vh-fix.js';
-import {initModals} from './modules/modals/init-modals';
-import {Form} from './modules/form-validate/form';
-import {CustomSelect} from './modules/select/custom-select';
 import {uploadFile, uploadImageDrop} from './modules/input-file/init-upload';
+import {getCardColor} from './utils/card-color';
+import {getScheme} from './utils/scheme.js';
+import {initTabs} from './utils/tabs/init-tabs.js';
+import {initAccordions} from './utils/accordion/init-accordion.js';
+import './modules/directions-swiper/directions-swiper.js';
+import './modules/promo-swiper/promo-swiper.js';
+import './modules/cool-swiper/cool-swiper.js';
+import './utils/burger.js';
+
+const colorList = document.querySelectorAll('.directions__card');
+const schemeList = document.querySelectorAll('.compare__scheme');
 
 // ---------------------------------
 
@@ -10,8 +18,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Utils
   // ---------------------------------
-
+  initTabs();
+  initAccordions();
   mobileVhFix();
+  getCardColor(colorList);
+  getScheme(schemeList);
 
   // Modules
   // ---------------------------------
@@ -19,14 +30,8 @@ window.addEventListener('DOMContentLoaded', () => {
   // все скрипты должны быть в обработчике 'DOMContentLoaded', но не все в 'load'
   // в load следует добавить скрипты, не участвующие в работе первого экрана
   window.addEventListener('load', () => {
-    initModals();
     uploadFile();
     uploadImageDrop();
-    const select = new CustomSelect();
-    select.init();
-    const form = new Form();
-    window.form = form;
-    form.init();
   });
 });
 

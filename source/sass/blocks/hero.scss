@@ -1,0 +1,99 @@
+.hero {
+  position: relative;
+  padding: size(50px) 0;
+  background-color: $color-light;
+
+  @include vp-767 {
+    padding: 20px 20px 60px;
+  }
+}
+
+.hero__wrapper {
+  max-width: size(1210px);
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: min-content min-content size(303px);
+
+  @include vp-1023 {
+    display: flex;
+    flex-direction: column;
+    padding-top: size(80px);
+    padding-bottom: 0;
+    row-gap: size(25px);
+    max-width: size(700px);
+  }
+
+  @include vp-767 {
+    padding-top: 35px;
+    max-width: 400px;
+    row-gap: 30px;
+  }
+
+  & .hero__title {
+    color: $color-accent-second;
+    padding-top: size(115px);
+    font-weight: 800;
+    font-size: size(50px);
+    line-height: 124%;
+
+    @include vp-1023 {
+      font-size: size(40px);
+      padding: 0;
+    }
+
+    @include vp-767 {
+      font-size: 28px;
+    }
+  }
+}
+
+.hero__text {
+  grid-row: 2;
+  font-weight: 500;
+  font-size: size(16px);
+  line-height: 143%;
+  color: $color-nobel;
+  padding: size(31px) size(203px) size(47px) 0;
+  margin: 0;
+
+  @include vp-767 {
+    padding: 0;
+    font-size: 14px;
+  }
+}
+
+.hero__button {
+  grid-row: 3;
+  margin-bottom: auto;
+  font-size: size(16px);
+
+  @include vp-767 {
+    font-size: size(14px);
+  }
+}
+
+.hero__right-column {
+  position: relative;
+  grid-row: span 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+
+  & img {
+    position: absolute;
+    top: size(-7px);
+    right: size(-20px);
+
+    @include vp-1170 {
+      top: size(50px);
+    }
+
+    @include vp-1023 {
+      display: none;
+    }
+  }
+
+  @include vp-1023 {
+    display: none;
+  }
+}

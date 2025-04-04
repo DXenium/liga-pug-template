@@ -1,0 +1,190 @@
+.directions {
+  position: relative;
+  padding: size(58px) 0 size(150px) 0;
+  background-color: $color-light;
+
+  @include vp-767 {
+    padding: 55px 0 60px;
+  }
+
+  & .container {
+    @include vp-767 {
+      padding: 0;
+      max-width: 100%;
+    }
+  }
+}
+
+.directions__gradient {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: size(-90px);
+    left: 0;
+    width: 100vw;
+    height: size(1426px);
+    background-image: url("../../img/svg/gradient.svg");
+    background-position: bottom;
+    background-size: size(3023px) size(1426px);
+    // z-index: -1;
+
+    @include vp-767 {
+      top: -92%;
+      height: 100%;
+      background-size: 1023px 926px;
+      // z-index: 0;
+    }
+  }
+}
+
+.directons__wrapper {
+  max-width: size(1280px);
+  margin: auto;
+
+  @include vp-767 {
+    max-width: 100%;
+  }
+
+  & .directions__title {
+    margin-bottom: size(52px);
+
+    @include vp-767 {
+      padding: 0 20px;
+      margin-bottom: 28px;
+    }
+  }
+}
+
+.directions__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: size(52px);
+  justify-content: space-between;
+
+  @include vp-767 {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    column-gap: 0;
+    margin-bottom: 35px;
+  }
+}
+
+.directions__card {
+  border-radius: size(56px);
+
+  &.swiper-slide {
+    width: auto;
+
+    @include vp-1023 {
+      min-width: size(325px);
+      min-height: size(335px);
+      max-width: 50%;
+    }
+
+    @include vp-767 {
+      min-width: 280px;
+      max-width: 280px;
+    }
+  }
+}
+
+.directions__card-link {
+  padding: size(55px) size(18px) size(89px);
+  width: size(414px);
+  min-height: size(425px);
+  background-color: $color-default-white;
+  border-radius: size(56px);
+  display: grid;
+  grid-template-columns: size(87px) auto;
+  grid-template-rows: size(135px) auto;
+  position: relative;
+  transition: color, background-color, 0.5s;
+
+  @include vp-1023 {
+    padding: size(40px) size(20px) size(60px);
+    width: calc(100% - 30px);
+    border-radius: size(40px);
+    grid-template-columns: 55px auto;
+    grid-template-rows: size(100px) auto;
+  }
+
+  @include vp-767 {
+    background-color: var(--color, #82b4ff);
+    color: $color-default-white;
+    padding: 37px 22px 52px;
+    width: 280px;
+    min-height: 280px;
+    border-radius: 35px;
+    grid-template-columns: 55px auto;
+    grid-template-rows: 50px auto;
+  }
+
+  @include hover-focus {
+    background-color: var(--color, #82b4ff);
+    color: $color-default-white;
+  }
+
+  & img {
+    width: size(73px);
+    height: size(73px);
+    margin-left: size(8px);
+
+    @include vp-1023 {
+      width: 50px;
+      height: 50px;
+      margin-left: 8px;
+    }
+
+    @include vp-767 {
+      margin: 0;
+    }
+  }
+}
+
+.directions__card-title {
+  font-size: size(25px);
+  font-weight: 500;
+  margin: size(20px) size(9px) size(35px);
+
+  @include vp-1023 {
+    font-size: size(20px);
+    margin: size(17px) size(9px) size(25px);
+  }
+
+  @include vp-767 {
+    font-size: 18px;
+    align-self: center;
+    margin-left: 16px;
+  }
+}
+
+.directions__text {
+  grid-column: span 2;
+  font-size: size(17px);
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: size(19px);
+  justify-content: center;
+  mask-image: linear-gradient(180deg, rgb(0, 0, 0, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+
+  @include vp-1023 {
+    font-size: 13px;
+    column-gap: 10px;
+  }
+
+  @include vp-767 {
+    font-size: 11px;
+    column-gap: 12px;
+    align-items: flex-end;
+    justify-content: flex-start;
+  }
+}
+
+.directions__swiper-button {
+  height: 50px;
+}

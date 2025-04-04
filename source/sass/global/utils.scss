@@ -71,3 +71,22 @@
 .js-focus-visible :focus:not(.focus-visible) {
   outline: none;
 }
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.21);
+  z-index: 5;
+  /* Ниже меню */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.overlay.overlay-visible {
+  opacity: 1;
+  visibility: visible;
+}

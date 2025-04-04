@@ -1,0 +1,208 @@
+.promo {
+  background-color: $color-light;
+  padding: size(150px) 0 size(125px);
+
+  @include vp-767 {
+    padding: 30px 0 0;
+  }
+}
+
+.promo__wrapper {
+  background-color: $color-default-white;
+  border-radius: size(72px);
+  padding: size(80px) size(65px);
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: min-content min-content;
+  column-gap: size(6px);
+  // min-height: size(935px);
+
+  @include vp-767 {
+    background: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0;
+    border-radius: 0;
+    margin-bottom: 20px;
+    // min-height: auto;
+  }
+}
+
+.promo__title {
+  text-align: center;
+  grid-column: span 2;
+  font-size: size(40px);
+
+  @include vp-767 {
+    text-align: left;
+    font-size: 21px;
+    padding: 0 20px;
+  }
+}
+
+.promo__content {
+  width: size(425px);
+  transition: height 0.5s;
+
+  @include vp-767 {
+    width: auto;
+    display: flex;
+    min-height: auto;
+    margin-bottom: 35px;
+  }
+}
+
+.promo__element {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+
+  @include vp-767 {
+    background-color: $color-default-white;
+    border-radius: 50px;
+    border: 1px solid $color-whisper;
+    position: relative;
+    margin-top: 85px;
+    padding: 170px 20px 39px;
+    text-align: center;
+    visibility: visible;
+    opacity: 1;
+    box-shadow: 0 4px 20px 0 rgba(134, 134, 134, 0.06);
+
+    &.swiper-slide {
+      width: 280px;
+    }
+  }
+
+  & img {
+    width: size(425px);
+    height: size(425px);
+
+    @include vp-767 {
+      position: absolute;
+      bottom: 50%;
+      left: 50%;
+      width: 280px;
+      height: 280px;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+.promo__element-title {
+  font-weight: 800;
+  font-size: size(30px);
+  line-height: 120%;
+  color: $color-accent-main;
+  margin: size(45px) 0 size(18px) size(23px);
+  text-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
+
+  @include vp-767 {
+    font-size: 18px;
+    text-align: left;
+    margin-left: 0;
+    margin: 10px 0 14px;
+  }
+}
+
+.promo__element-description {
+  line-height: 160%;
+  margin: 0 0 0 size(23px);
+  padding-right: size(64px);
+
+  @include vp-1023 {
+    margin: 0;
+    padding: 0;
+  }
+
+  @include vp-767 {
+    text-align: left;
+    font-size: 14px;
+  }
+}
+
+.promo__controls {
+  display: flex;
+  flex-direction: column;
+  width: size(630px);
+  margin-top: size(144px);
+  row-gap: size(47px);
+
+  @include vp-767 {
+    display: none;
+  }
+}
+
+.promo__control {
+  font-weight: 500;
+  line-height: 160%;
+  background-color: $color-light;
+  box-shadow: 0 3px 31px 0 rgba(112, 144, 176, 0.02);
+  color: $color-accent-second;
+  padding: size(23px) size(27px);
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  border-radius: size(30px);
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  column-gap: size(23px);
+  row-gap: size(3px);
+  transition: color, background-color, 0.5s;
+
+  & svg {
+    color: $color-slate-blue;
+    background-color: $color-magnolia;
+    border: 1px solid $color-white-smoke;
+    width: size(60px);
+    height: size(60px);
+    padding: size(14.5px);
+    border-radius: size(20px);
+    grid-row: span 2;
+    margin-bottom: auto;
+    transition: color, background-color, 0.5s;
+  }
+
+  &.is-active {
+    opacity: 1;
+    pointer-events: none;
+    background-color: $color-accent-main;
+    color: $color-default-white;
+
+    & svg {
+      color: $color-default-white;
+      background-color: $color-royal-blue;
+      border-color: $color-royal-blue;
+    }
+  }
+
+  @include hover-focus {
+    box-shadow: 0 3px 31px 0 rgba(112, 144, 176, 0.02);
+    background-color: $color-solitude;
+
+    & svg {
+      color: $color-portage;
+      background-color: $color-solitude-hover;
+      border-color: $color-solitude-hover;
+    }
+  }
+}
+
+.promo__control-title {
+  font-size: size(25px);
+  line-height: 160%;
+  margin: 0;
+}
+
+.promo__control-description {
+  opacity: 0.6;
+  grid-column: 2;
+  font-weight: 400;
+}
+
+.promo__swiper-button {
+  height: 50px;
+}

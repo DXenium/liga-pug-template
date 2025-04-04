@@ -1,17 +1,55 @@
 .btn {
   display: inline-flex;
-  padding: 10px 20px;
-
+  padding: size(10px) size(20px);
+  border-radius: size(20px);
+  width: size(306px);
+  min-height: size(78px);
+  font-weight: 500;
+  justify-content: center;
+  align-items: center;
+  column-gap: size(24px);
   color: $color-default-white;
 
-  background-color: $color-neon-blue;
+  background-color: $color-accent-main;
   border: none;
   cursor: pointer;
 
-  transition: opacity $trans-default;
+  transition: box-shadow $trans-default;
 
-  &--red {
-    background-color: $color-torch-red;
+  & svg {
+    background-color: $color-cornflower-blue;
+    width: size(45px);
+    height: size(45px);
+    padding: size(10px);
+    border-radius: 100%;
+
+    @include vp-1023 {
+      width: size(34px);
+      height: size(34px);
+      padding: size(6px);
+    }
+
+    @include vp-767 {
+      width: 29px;
+      height: 29px;
+      padding: 6px;
+    }
+  }
+
+  @include vp-1023 {
+    padding: size(8px) size(17px);
+    border-radius: size(18px);
+    width: size(250px);
+    min-height: size(55px);
+    font-size: 14px;
+  }
+
+  @include vp-767 {
+    padding: 8px 17px;
+    border-radius: 12px;
+    width: 191px;
+    min-height: 45px;
+    column-gap: 13px;
   }
 
   &:disabled {
@@ -21,6 +59,34 @@
   }
 
   @include hover-focus {
-    opacity: 0.8;
+    box-shadow: 0 20px 40px -10px rgba(72, 109, 216, 0.6);
+  }
+
+  &__swiper {
+    display: none;
+
+    @include vp-767 {
+      --swiper-navigation-size: 20px;
+      display: block;
+      position: relative;
+      width: 50px;
+      height: 50px;
+      border-radius: 100%;
+      border: 1px solid $color-default-grey;
+      color: $color-default-black;
+      margin: 0;
+      left: 0;
+      top: 0;
+      background-color: $color-magnolia;
+
+      &--prev {
+        left: 30%;
+      }
+
+      &--next {
+        left: 55%;
+        top: -50px;
+      }
+    }
   }
 }

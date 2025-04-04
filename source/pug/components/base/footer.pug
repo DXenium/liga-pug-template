@@ -1,3 +1,40 @@
 mixin footer(footerMods)
+
   footer.footer(class=footerMods)
     .container
+      .footer__wrapper
+        .footer__logo-wrapper
+          a.footer__logo
+            <svg class="footer__logo-svg" width="36" height="41" viewBox="0 0 36 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="15.7949" y="41" width="7.37082" height="3.15892" transform="rotate(-90 15.7949 41)" fill="white" />
+            <mask id="mask0_558_2050" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="36" height="34">
+            <rect y="11.7004" width="13.1622" height="24.7449" transform="rotate(-26.999 0 11.7004)" fill="#C4C4C4" />
+            <rect x="11.7148" y="20.4009" width="13.1622" height="24.7449" transform="rotate(-108.7 11.7148 20.4009)" fill="#C4C4C4" />
+            </mask>
+            <g mask="url(#mask0_558_2050)">
+            <circle cx="17.3746" cy="17.3082" r="9.74001" stroke="white" stroke-width="2.63244" />
+            </g>
+            </svg>
+            |FindEdu
+          p.footer__coopiright © FindEdu 2022.#[br]Все права защищены.
+        .footer__content-wrapper
+          .footer__content-column
+            h2.footer__content-title Категории
+            ul.footer__content-list
+              each item in ['Дизайн', 'Программирование', 'Маркетинг', 'Менеджмент', 'Аналитика']
+                li.footer__content-item
+                  a.footer__link(href="#")= item
+
+          .footer__content-column
+            h2.footer__content-title Популярные направления
+            ul.footer__content-list
+              each item in ['Веб-разработка', 'Java-разработка', 'Python-разработка', 'SMM-продвижение', 'Графический дизайн', 'Дизайн интерьеров']
+                li.footer__content-item
+                  a.footer__link(href="#")= item
+
+          .footer__content-column
+            h2.footer__content-title Общая информация
+            ul.footer__content-list
+              each item in ['О проекте', 'Политика конфиденциальности', 'Пользовательское соглашение']
+                li.footer__content-item
+                  a.footer__link(href="#")= item
